@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Grooming & Boarding</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+ /* Custom CSS for styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #f9e5ac, #ffd8a6); /* Light orange gradient background */
+    color: #333; /* Dark text for readability */
+}
+
+.navbar {
+    background: linear-gradient(120deg, #ffc36a, #ffb039); /* Lighter orange gradient for navbar */
+}
+
+.navbar-brand, .nav-link {
+    color: #000000 !important; /* Black text for navbar links */
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none; /* Remove border from the toggler button */
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #000000; /* Black color for the lines */
+    display: block;
+    position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background-color: #000000; /* Black color for the lines */
+    display: block;
+    position: absolute;
+    left: 0;
+}
+
+.navbar-toggler-icon::before {
+    top: -10px; /* Position the top line */
+}
+
+.navbar-toggler-icon::after {
+    top: 10px; /* Position the bottom line */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent black for active link */
+}
+
+/* Carousel */
+.carousel-item {
+    height: 600px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.carousel-indicators li {
+    background-color: #616161; /* White color for carousel indicators */
+    margin-bottom: 20px;
+}
+
+.carousel-indicators .active {
+    background-color: #000000; /* Lighter orange color for active indicator */
+    margin-bottom: 20px;
+}
+
+.carousel {
+    padding: 20px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4 0l-4 4 4 4 1.5-1.5-2.5-2.5h6v-1h-6l2.5-2.5z"/></svg>');
+    background-color: transparent; /* Ensure the background is transparent */
+    background-size: contain; /* Adjust size as needed */
+    background-repeat: no-repeat; /* Prevent repeating */
+}
+
+.carousel-control-next-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4 0l-1.5 1.5 2.5 2.5h-6v1h6l-2.5 2.5 1.5 1.5 4-4-4-4z"/></svg>');
+    background-color: transparent; /* Ensure the background is transparent */
+    background-size: contain; /* Adjust size as needed */
+    background-repeat: no-repeat; /* Prevent repeating */
+}
+
+
+
+/* Card Slider */
+.card-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.card-slider .card {
+    min-width: 300px;
+    flex: 1 0 auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000000; /* Black border for cards */
+    background-color: #ffffff; /* White background for cards */
+    color: #333333; /* Dark text for card content */
+}
+
+.card-slider .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about{
+    text-align: center;
+}
+
+/* Testimonial */
+.testimonial {
+    padding: 50px 0;
+    background: linear-gradient(120deg, #ffc36a, #ffb039); /* Gradient matching navbar */
+    color: #000000; /* Black text */
+}
+
+.testimonial h3 {
+    margin-bottom: 30px;
+    font-weight: bold;
+    
+}
+
+.testimonial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.testimonial-name {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white for name */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    border: 1px solid black;
+}
+
+.carousel-inner p {
+    background-color: #ffffff; /* White background for testimonial text */
+    padding: 100px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border: 1px solid black;
+}
+
+/* Container */
+.container {
+    background-color: #ffffff; /* White background for container */
+    padding: 20px 30px;
+    border: 1px solid #000000; /* Black border for container */
+    border-radius: 10px;
+    color: #333333; /* Dark text */
+}
+
+/* Contact Form */
+.contact-form {
+    padding: 50px 0;
+    background-color: #ffffff; /* White background for contact form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+/* Footer */
+footer {
+    background-color: #232222; /* Black background for footer */
+    color: #ffffff; /* White text for footer */
+    padding: 20px 0;
+    width: 100%; /* Ensure footer spans the full width */
+    text-align: center; /* Center-align footer content */
+}
+
+footer .social-icons {
+    margin-bottom: 10px;
+}
+
+footer .social-icons a {
+    color: #ffffff; /* White color for social icons */
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+footer p {
+    margin: 0; /* Remove default margin for paragraphs in footer */
+}
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #ffb74d; /* Lighter orange color for collapsed navbar */
+        padding: 10px;
+    }
+    
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .card-slider .card {
+        min-width: 250px;
+    }
+    
+    .testimonial-item {
+        padding: 10px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">Groombox</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <a class="dropdown-item" href="grooming.html">Grooming</a>
+                        <a class="dropdown-item" href="boarding.html">Boarding</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="./carousel/pet.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="./carousel/pet1.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="./carousel/pet2.jpg" alt="Third slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+    
+
+    <!-- Boarding Services Slider -->
+    <div class="container my-5">
+        <h3 class="text-center mb-4">Our Boarding Services</h3>
+        <div class="card-slider">
+            <!-- Repeat for more cards -->
+            <div class="card">
+                <img class="card-img-top" src="./boardingimages/boarding.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 1</h5>
+                    <p class="card-text">Description of boarding service 1.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./boardingimages/24_7_supervision.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 2</h5>
+                    <p class="card-text">Description of boarding service 2.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./boardingimages/regular_health_checkups.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 3</h5>
+                    <p class="card-text">Description of boarding service 3.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./boardingimages/daily_exercise_playtime.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 4</h5>
+                    <p class="card-text">Description of boarding service 4.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./boardingimages/personalized_feeding_schedules.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 5</h5>
+                    <p class="card-text">Description of boarding service 5.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grooming Services Slider -->
+    <div class="container my-5">
+        <h3 class="text-center mb-4">Our Grooming Services</h3>
+        <div class="card-slider">
+            <!-- Repeat for more cards -->
+            <div class="card">
+                <img class="card-img-top" src="./groomingiamges/bathing_drying.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 1</h5>
+                    <p class="card-text">Description of grooming service 1.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./groomingiamges/ear_cleaning.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 2</h5>
+                    <p class="card-text">Description of grooming service 2.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./groomingiamges/hair_cutting.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 3</h5>
+                    <p class="card-text">Description of grooming service 3.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./groomingiamges/nail_trimming.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 4</h5>
+                    <p class="card-text">Description of grooming service 4.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="./groomingiamges/teeth_brushing.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Service 5</h5>
+                    <p class="card-text">Description of grooming service 5.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- About Us -->
+<div id="about" class="about-us py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="./aboutus_img/aboutus.jpg" alt="About Us" class="img-fluid">
+            </div>
+            <div class="col-md-6 about-us-content">
+                <h3 class="about">About Us</h3>
+                <p>We are dedicated to providing the best grooming and boarding services for your beloved pets. With years of experience and a passion for animals, we ensure that your pets receive the care and attention they deserve.</p>
+                <p>Our facilities are equipped with modern amenities to ensure the comfort and safety of your pets. Our team of professional groomers and caretakers are highly trained and committed to delivering top-notch services.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <body>
+ <!-- testimonial -->
+<div id="testimonials" class="testimonial py-5">
+    <div class="container text-center">
+        <h3>What Our Clients Say</h3>
+        <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="2"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="3"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="4"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="5"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="6"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="7"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="8"></li>
+                <li data-target="#testimonialCarousel" data-slide-to="9"></li>
+            </ol>
+            <div class="carousel-inner">
+                <!-- Testimonial items -->
+                <div class="carousel-item active">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">John Doe</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, blanditiis adipisci! Non nihil rerum cupiditate sint neque quo explicabo dolore repudiandae numquam esse assumenda, quis, ab magni voluptas qui voluptates?</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Jane Smith</div>
+                        <p>Great boarding facilities. My cat was well taken care of and seemed very happy when I picked her up.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Robert Brown</div>
+                        <p>The staff are very friendly and professional. My dog loves going to Groombox for grooming.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Emily Davis</div>
+                        <p>Excellent service and reasonable prices. I am very satisfied with the grooming and boarding services.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Michael Wilson</div>
+                        <p>Highly skilled groomers who truly care about the pets. My dog always looks his best after a visit to Groombox.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Linda Johnson</div>
+                        <p>Great experience every time! My cat enjoys the boarding and comes back happy and healthy.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Chris Lee</div>
+                        <p>I love how they handle my dog with care and attention. The grooming service is top-notch!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Karen Martinez</div>
+                        <p>Groombox provides a safe and comfortable environment for my pets. I wouldn't trust anyone else with their care.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">David Anderson</div>
+                        <p>The best grooming service in town! My dog always looks great and feels pampered after each visit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-item">
+                        <div class="testimonial-name">Susan Taylor</div>
+                        <p>Friendly staff and excellent service. My cat was well-groomed and happy. Thank you, Groombox!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel controls -->
+            <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+        
+    
+<!-- Footer -->
+<footer style="background-color: #262626; color: #ffffff;">
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f" style="color: #ffffff;"></i></a>
+        <a href="#"><i class="fab fa-twitter" style="color: #ffffff;"></i></a>
+        <a href="#"><i class="fab fa-instagram" style="color: #ffffff;"></i></a>
+    </div>
+    <p>&copy; 2024 Pet Services. All rights reserved.</p>
+</footer>
+
+
+    <!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#boardingButton').click(function () {
+            $('#boardingForm').toggleClass('d-none');
+            $('#groomingForm').addClass('d-none');
+        });
+        $('#groomingButton').click(function () {
+            $('#groomingForm').toggleClass('d-none');
+            $('#boardingForm').addClass('d-none');
+        });
+        $('#testimonialCarousel').carousel({
+            interval: 2000 // Faster speed (2 seconds)
+        });
+        // Automatic sliding for the main carousel
+        $('#carouselExampleIndicators').carousel({
+            interval: 3000 // Speed for main carousel (3 seconds)
+        });
+    });
+</script>
+
+    
+
+</body>
+
+</html>
